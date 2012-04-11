@@ -1,0 +1,18 @@
+{
+  "name" : "Prashant add-on",
+  "version" : "0.1",
+  "description" : "",
+  "background_page" : "background.html",
+  "options_page": "options.html",
+  "content_scripts" : [
+    {
+      "matches" : [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js" : ["js/contentscript.js"],
+      "run_at" : "document_idle",
+      "all_frames" : false
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<style>@import "css/options.css";</style> 
+		<title>Prashant Extension Options</title>
+		<script type="text/javascript" src="js/options.js"></script>
+	</head>
+	
+	<body onload="restore_options()">
+		<div class="wrapper">
+			<div class="header">
+				<b>User Name:</b>
+				<br>
+				<input type="text" id="username">
+				<br>
+				<br>
+			</div>
+			<div class="left">
+				<table class="urljsmap" id="urljsmaptable">
+					<col class="bigCol"/>
+					<col class="bigCol"/>
+					<col />
+					<thead>
+						<th>Address Regexp</th>
+						<th>Javascript</th>
+						<th></th>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+			<div class="right">
+					<table>
+						<col />
+						<tbody>
+							<tr>
+								<td><input type="button" id="editBtn" value="Edit" onclick="initEditItem()" disabled class="btnSize"></td>
+							</tr>
+							<tr>
+								<td><input type="button" id="deleteBtn" value="Delete" onclick="deleteItem()" onkeyup="alert('!!');" disabled class="btnSize"></td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="wrapper">
+				<div class="left">
+					<table>
+						<col class="bigCol"/>
+						<col class="bigCol"/>
+						<col />
+						<tbody>
+							<tr>
+								<td><input type="text" id="urlText" class="bigText"></td>
+								<td><input type="text" id="jsText" class="bigText"></td>
+								<td><input type="button" id="addBtn" value="add" onclick="addItem()"><input type="button" id="okBtn" value="ok" hidden onclick="editItem()"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="right">
+					<table>
+						<col />
+						<tbody>
+							<tr>
+								<td><input type="button" value="Save" onclick="save_options()" class="btnSize"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

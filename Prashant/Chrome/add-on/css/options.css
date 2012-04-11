@@ -1,0 +1,67 @@
+.urljsmap {
+	width: 100%
+	border: 1px solid #B0B0B0;
+}
+.urljsmap tbody {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+.urljsmap thead {
+	text-align: left;
+}
+.urljsmap thead th {
+	background: #F2F2F2;
+	border: 1px solid #B0B0B0;
+	color: #444;
+	font-weight: bold;
+	padding: 3px 10px;
+}
+.urljsmap td {
+	padding: 3px 10px;
+}
+.bigCol {
+	width: 400px;
+}
+
+.bigText {
+	width: 100%;
+}
+
+.btnSize {
+	width: 50px;
+}
+
+.urljsmap tr:nth-child(odd) {
+	background: #F2F2F2;
+}
+
+.inputHighlighted{
+  border:2px solid red;
+}
+
+.wrapper{
+   margin: 0px auto;
+   width: 900px;
+}
+.header{
+   float: left;
+   width: 100%;
+}
+.left{
+   float: left;
+   margin-right: 20px;
+   width: 800px;
+}
+.right{
+   float: right;
+   width: 50px;
+}
+.footer{
+   float: left;
+   width: 100%;
+}
