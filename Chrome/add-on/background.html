@@ -2,26 +2,40 @@
 <html>
 	<head>
 		<script>
-			function onRequest(request, sender, sendResponse) {
+			function checkUrl(currentUrl){
 				var itemsCount = localStorage["itemsCount"];
+				var js = "";
 				if (itemsCount) {
-					var js = "";
 					for (var i=1; i<itemsCount; i++){
 						var url = localStorage["row_"+i+"_0"];
 						var regExp = new RegExp(url,"g");
-						if (regExp.test(request.location)){
+						if (regExp.test(currentUrl)){
 							js = localStorage["row_"+i+"_1"];
 							break;
 						}
 					}
+				}
+				return js;
+			}
+
+			function onRequest(request, sender, sendResponse) {
+				var js = checkUrl(request.location);
+				if (js!="") {
 					sendResponse({	
 						javascript:js, 
 						username:localStorage["username"]
 					});
 				}
 			}
-			
 			chrome.extension.onRequest.addListener(onRequest);
+
+			function checkForScriptedUrl(tabId, changeInfo, tab) {
+				var js = checkUrl(tab.url);
+				if (js!="") {
+					chrome.pageAction.show(tabId);
+				}
+			};
+			chrome.tabs.onUpdated.addListener(checkForScriptedUrl);
 		</script>
 	</head>
 </html>
