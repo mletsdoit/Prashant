@@ -1,9 +1,11 @@
 var prashantScript = {
+	
 	execute : function () {
 		prashantScript.fireCustomEvent();
 	},
 	
 	fireCustomEvent: function() {
+		prashantScript.getUsername();
 		var customEvent = document.createEvent('Event');
 		customEvent.initEvent('PrashantEvent', true, true);
 		var prashantData = document.createElement('input');
@@ -24,7 +26,9 @@ var prashantScript = {
 		}
 		return value;
 	},
-
+	getUsername: function(){
+		alert("Add-on username: "+document.getElementById('PrashantAddonUsername').value);
+	}
 };
 
 prashantScript.execute();

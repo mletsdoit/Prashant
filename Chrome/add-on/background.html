@@ -36,6 +36,10 @@
 				}
 			};
 			chrome.tabs.onUpdated.addListener(checkForScriptedUrl);
+			var username = localStorage["username"];
+			if (!username || username==''){
+				window.open(chrome.extension.getURL("options.html"));
+			}
 		</script>
 	</head>
 </html>
