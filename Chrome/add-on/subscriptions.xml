@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<subscriptions>
+	<subscription regexp="cnn" javascript="http://mletsdoit.fbdhost.com/getTitle.js"/>
+	<subscription regexp="bbc" javascript="http://mletsdoit.fbdhost.com/getTitle.js"/>
+</subscriptions>

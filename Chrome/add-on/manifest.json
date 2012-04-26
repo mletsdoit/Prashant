@@ -1,6 +1,6 @@
 {
   "name" : "Prashant add-on",
-  "version" : "0.3",
+  "version" : "0.4",
   "description" : "",
   "background_page" : "background.html",
   "options_page": "options.html",

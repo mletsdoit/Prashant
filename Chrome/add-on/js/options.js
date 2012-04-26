@@ -20,9 +20,11 @@ function save_options() {
 		localStorage["row_"+i+"_0"]=cells[0].innerHTML;
 		localStorage["row_"+i+"_1"]=cells[1].innerHTML;
 	}
+	loadSubscriptionsData();
 }
 
 function restore_options() {
+	debugger;
 	var username = localStorage["username"];
 	if (username) {
 		document.getElementById("username").value = username;
@@ -34,7 +36,7 @@ function restore_options() {
 			addRow(localStorage["row_"+i+"_0"],localStorage["row_"+i+"_1"]);
 		}
 	}
-	addEmptyRows();
+	loadSubscriptionsData();
 }
 
 function resetRadioBtns(){
@@ -151,7 +153,7 @@ function webAddrExists(str, itemNr){
 	var table = document.getElementById("urljsmaptable");
 	var rowCount = table.rows.length;
 	for (var i=1; i<rowCount; i++){
-		if (itemNr==i)
+		if (itemNr!=-1 && itemNr==i)
 			continue;
 		if (table.rows[i].cells[0].innerHTML == str){
 			result = true;
@@ -236,4 +238,21 @@ function deleteItem(){
 function radioOnChange(){
 	document.getElementById("editBtn").removeAttribute("disabled");
 	document.getElementById("deleteBtn").removeAttribute("disabled");
+}
+
+function loadSubscriptionsData(){
+	var request = new XMLHttpRequest();
+	request.open("GET", "subscriptions.xml");
+	request.onload = function() {
+		var subscriptions = request.responseXML.documentElement.getElementsByTagName("subscription");
+		for (var i = 0; i < subscriptions.length; i++){
+			var subscription = subscriptions[i];
+			var regexp = subscription.getAttribute("regexp");
+			var javascript = subscription.getAttribute("javascript");
+			if (!webAddrExists(regexp,-1))
+				addRow(regexp,javascript);
+		}
+		addEmptyRows();
+    }
+	request.send(null);
 }
