@@ -1,12 +1,12 @@
 {
-  "name" : "Prashant add-on",
+  "name" : "Quipper add-on",
   "version" : "0.4",
   "description" : "",
   "background_page" : "background.html",
   "options_page": "options.html",
   "page_action": {
     "default_icon": "img/icon.png",
-    "default_title": "Prashant add-on is active"
+    "default_title": "Quipper add-on is active"
   },
   "permissions" : [
     "tabs"

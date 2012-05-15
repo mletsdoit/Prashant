@@ -1,19 +1,19 @@
-var prashantScript = {
+var quipperScript = {
 	
 	execute : function () {
-		prashantScript.fireCustomEvent();
+		quipperScript.fireCustomEvent();
 	},
 	
 	fireCustomEvent: function() {
-		prashantScript.getUsername();
+		quipperScript.getUsername();
 		var customEvent = document.createEvent('Event');
-		customEvent.initEvent('PrashantEvent', true, true);
-		var prashantData = document.createElement('input');
-		prashantData.setAttribute('type','hidden');
-		prashantData.setAttribute('id','prashantData');
-		prashantData.setAttribute('value', prashantScript.getData());
-		document.body.appendChild(prashantData);
-		prashantData.dispatchEvent(customEvent);
+		customEvent.initEvent('QuipperEvent', true, true);
+		var quipperData = document.createElement('input');
+		quipperData.setAttribute('type','hidden');
+		quipperData.setAttribute('id','quipperData');
+		quipperData.setAttribute('value', quipperScript.getData());
+		document.body.appendChild(quipperData);
+		quipperData.dispatchEvent(customEvent);
 	},
 
 	getData: function(){
@@ -27,8 +27,8 @@ var prashantScript = {
 		return value;
 	},
 	getUsername: function(){
-		alert("Add-on username: "+document.getElementById('PrashantAddonUsername').value);
+		alert("Add-on username: "+document.getElementById('QuipperAddonUsername').value);
 	}
 };
 
-prashantScript.execute();
+quipperScript.execute();

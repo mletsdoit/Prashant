@@ -9,7 +9,7 @@ chrome.extension.sendRequest({location:document.location.href},
 	}
 );
 
-document.addEventListener('PrashantEvent',
+document.addEventListener('QuipperEvent',
 	function(evt) {
 		var xmlData = '<result>\n    <username>'+username+'</username>\n    <title>'+evt.srcElement.value+'</title>\n</result>';
 		//var xhr = new XMLHttpRequest();
@@ -28,15 +28,15 @@ function addScript(scriptURL, onload) {
 }
 
 function injectUsername(username){
-	var id = 'PrashantAddonUsername';
+	var id = 'QuipperAddonUsername';
 	var usernameInput = document.getElementById(id);
 	if (usernameInput){
 		usernameInput.setAttribute('value',username);
 		return;
 	}
-	var prashantData = document.createElement('input');
-	prashantData.setAttribute('type','hidden');
-	prashantData.setAttribute('id',id);
-	prashantData.setAttribute('value', username);
-	document.body.appendChild(prashantData);
+	var quipperData = document.createElement('input');
+	quipperData.setAttribute('type','hidden');
+	quipperData.setAttribute('id',id);
+	quipperData.setAttribute('value', username);
+	document.body.appendChild(quipperData);
 }

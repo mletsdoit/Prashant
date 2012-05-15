@@ -1,6 +1,7 @@
 var _TOTAL_ROWS_=7;
 
 function save_options() {
+/*
 	var usernameText = document.getElementById("username");
 	var username = trim(usernameText.value);
 	if (username==""){
@@ -10,6 +11,7 @@ function save_options() {
 	}
 	changeStyle(usernameText, "");
 	localStorage["username"]=trim(document.getElementById("username").value);
+*/
 	var itemsCount=getLastIndex();
 	if (itemsCount==-1)
 		return;
@@ -24,11 +26,11 @@ function save_options() {
 }
 
 function restore_options() {
-	debugger;
 	var username = localStorage["username"];
 	if (username) {
 		document.getElementById("username").value = username;
 	}
+	usernameChange();
 	var itemsCount = localStorage["itemsCount"];
 	if (itemsCount) {
 		var table = document.getElementById("urljsmaptable");
@@ -92,6 +94,7 @@ function addItem(){
 	var jsText = document.getElementById('jsText');
 	addRow(urlText.value,jsText.value);
 	resetSelectedRadio();
+	save_options();
 }
 
 function initEditItem(){
@@ -121,6 +124,7 @@ function editItem(){
 	document.getElementById('okBtn').setAttribute('hidden',"true");
 	document.getElementById('addBtn').removeAttribute('hidden');
 	resetSelectedRadio();
+	save_options();
 }
 
 function isUrl(str) {
@@ -233,6 +237,7 @@ function deleteItem(){
 			addEmptyRows();
 		}
 	}
+	save_options();
 }
 
 function radioOnChange(){
@@ -255,4 +260,16 @@ function loadSubscriptionsData(){
 		addEmptyRows();
     }
 	request.send(null);
+}
+
+function usernameChange(){
+	var usernameText = document.getElementById("username");
+	var username = trim(usernameText.value);
+	if (username==""){
+		changeStyle(usernameText, "inputHighlighted");
+		usernameText.focus();
+		return false;
+	}
+	changeStyle(usernameText, "");
+	localStorage["username"]=trim(document.getElementById("username").value);
 }
