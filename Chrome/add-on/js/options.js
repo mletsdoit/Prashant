@@ -22,7 +22,7 @@ function save_options() {
 		localStorage["row_"+i+"_0"]=cells[0].innerHTML;
 		localStorage["row_"+i+"_1"]=cells[1].innerHTML;
 	}
-	loadSubscriptionsData();
+	addEmptyRows();
 }
 
 function restore_options() {
@@ -38,7 +38,13 @@ function restore_options() {
 			addRow(localStorage["row_"+i+"_0"],localStorage["row_"+i+"_1"]);
 		}
 	}
-	loadSubscriptionsData();
+	var notFirstTime = localStorage["notFirstTime"];
+	if (!notFirstTime || notFirstTime==""){
+		localStorage["notFirstTime"] = "true";
+		loadSubscriptionsData();
+		return;
+	}
+	addEmptyRows();
 }
 
 function resetRadioBtns(){
@@ -258,7 +264,8 @@ function loadSubscriptionsData(){
 				addRow(regexp,javascript);
 		}
 		addEmptyRows();
-    }
+		save_options();
+	}
 	request.send(null);
 }
 
